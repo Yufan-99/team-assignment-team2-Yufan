@@ -1,6 +1,3 @@
-## Create data directory
-dir.create("./data/raw_data")
-
 ## Load libraries
 library(tidyverse)
 library(dplyr)
@@ -23,19 +20,5 @@ names <- c("Paris_listing", "Paris_calendar", "Amsterdam_listing", "Amsterdam_ca
 for (i in 1:length(urls)) {
   download.file(urls[i], paste0(names[i], ".csv.gz"), mode = "wb")
 }
-
-## View Data 
-Paris_listing <- read_csv(gzfile("Paris_listing.csv.gz"), header = TRUE, sep = ",")
-View(Paris_listing)
-Paris_calendar <- read_csv(gzfile("Paris_calendar.csv.gz"), header = TRUE, sep = ",")
-View(Paris_calendar)
-Amsterdam_listing <- read_csv(gzfile("Amsterdam_listing.csv.gz"), header = TRUE, sep = ",")
-View(Amsterdam_listing)
-Amsterdam_calendar <- read_csv(gzfile("Amsterdam_calendar.csv.gz"), header = TRUE, sep = ",")
-View(Amsterdam_calendar)
-NY_listing <- read_csv(gzfile("NY_listing.csv.gz"), header = TRUE, sep = ",")
-View(NY_listing)
-NY_calendar <- read_csv(gzfile("NY_calendar.csv.gz"), header = TRUE, sep = ",")
-View(NY_calendar)
 
 
